@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="j2ee" nsURI="http://www.eclipse.org/emf/facade/2017/test/j2ee"
+    nsPrefix="j2ee">
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" ordered="false"
+        upperBound="-1" eType="#//NamedElement" changeable="false" volatile="true"
+        transient="true" derived="true" eOpposite="#//NamedElement/package">
+      <eAnnotations source="union"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" ordered="false" upperBound="-1"
+        eType="#//Bean" containment="true">
+      <eAnnotations source="subsets" references="#//Package/member"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="homeInterface" ordered="false"
+        upperBound="-1" eType="#//HomeInterface" containment="true">
+      <eAnnotations source="subsets" references="#//Package/member"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finder" ordered="false"
+        upperBound="-1" eType="#//Finder" containment="true">
+      <eAnnotations source="subsets" references="#//Package/member"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eOperations name="getQualifiedName" ordered="false" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getPackage" ordered="false" eType="#//Package">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="setPackage" ordered="false" lowerBound="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedVisibility" value="true"/>
+      </eAnnotations>
+      <eParameters name="newPackage" ordered="false" eType="#//Package"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"
+        changeable="false" volatile="true" transient="true" derived="true" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="package" ordered="false"
+        eType="#//Package" volatile="true" transient="true" derived="true" eOpposite="#//Package/member"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bean" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false" lowerBound="1"
+        eType="#//BeanKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Boolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superclass" ordered="false"
+        eType="#//Bean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="homeInterface" ordered="false"
+        eType="#//HomeInterface" eOpposite="#//HomeInterface/bean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finder" ordered="false"
+        upperBound="-1" eType="#//Finder" eOpposite="#//Finder/bean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BeanKind">
+    <eLiterals name="session"/>
+    <eLiterals name="entity" value="1"/>
+    <eLiterals name="messagedriven" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HomeInterface" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" ordered="false" lowerBound="1"
+        eType="#//Bean" eOpposite="#//Bean/homeInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Finder" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bean" ordered="false" lowerBound="1"
+        eType="#//Bean" eOpposite="#//Bean/finder"/>
+  </eClassifiers>
+</ecore:EPackage>

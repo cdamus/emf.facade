@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.emf.facade.uml2.tests.edit;singleton:=true
+Bundle-Version: 0.7.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.emf.facade.uml2.tests.j2ee.internal.provider.J2EEEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.emf.facade.uml2.tests.j2ee.internal.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.facade.uml2.tests;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.uml2.types;visibility:=reexport,
+ org.eclipse.uml2.common.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

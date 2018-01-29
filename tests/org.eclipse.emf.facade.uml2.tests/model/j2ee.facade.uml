@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_0" name="j2ee" URI="http://www.eclipse.org/emf/facade/2017/test/j2ee" viewpoint="Façade">
+    <packageImport xmi:id="_packageImport.0">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="Package" name="Package">
+      <generalization xmi:id="Package-_generalization.0" general="NamedElement"/>
+      <ownedAttribute xmi:id="Package-member" name="member" type="NamedElement" isDerived="true" isDerivedUnion="true" association="_packagedElement.8">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Package-member-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Package-member-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Package-bean" name="bean" type="Bean" aggregation="composite" subsettedProperty="Package-member" association="_packagedElement.9">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Package-bean-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Package-bean-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Package-homeInterface" name="homeInterface" type="HomeInterface" aggregation="composite" subsettedProperty="Package-member" association="_packagedElement.10">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Package-homeInterface-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Package-homeInterface-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Package-finder" name="finder" type="Finder" aggregation="composite" subsettedProperty="Package-member" association="_packagedElement.11">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Package-finder-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Package-finder-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="NamedElement" name="NamedElement" isAbstract="true">
+      <ownedAttribute xmi:id="NamedElement-name" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ns6GEHLIEeeEc4Gd2aZy8A" name="qualifiedName" isReadOnly="true" isDerived="true" isID="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="NamedElement-package" name="package" type="Package" isDerived="true" association="_packagedElement.8">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="NamedElement-package-_lowerValue"/>
+      </ownedAttribute>
+      <ownedOperation xmi:id="_w18HIHLIEeeEc4Gd2aZy8A" name="getQualifiedName" visibility="protected">
+        <ownedParameter xmi:id="_w18HIXLIEeeEc4Gd2aZy8A" direction="return" effect="read">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="NamedElement-getPackage" name="getPackage" visibility="protected">
+        <ownedParameter xmi:id="NamedElement-getPackage-_ownedParameter.0" type="Package" direction="return" effect="read">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="NamedElement-getPackage-_ownedParameter.0-_lowerValue"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="NamedElement-setPackage" name="setPackage" visibility="protected">
+        <ownedParameter xmi:id="NamedElement-setPackage-newPackage" name="newPackage" type="Package" effect="read">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="NamedElement-setPackage-newPackage-_lowerValue"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Bean" name="Bean">
+      <generalization xmi:id="Bean-_generalization.0" general="NamedElement"/>
+      <ownedAttribute xmi:id="Bean-kind" name="kind" type="BeanKind"/>
+      <ownedAttribute xmi:id="Bean-isAbstract" name="isAbstract">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Bean-superclass" name="superclass" type="Bean">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Bean-superclass-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Bean-homeInterface" name="homeInterface" type="HomeInterface" association="_packagedElement.5">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Bean-homeInterface-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Bean-finder" name="finder" type="Finder" association="_packagedElement.7">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Bean-finder-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Bean-finder-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="BeanKind" name="BeanKind">
+      <ownedLiteral xmi:id="BeanKind-session" name="session"/>
+      <ownedLiteral xmi:id="BeanKind-entity" name="entity"/>
+      <ownedLiteral xmi:id="BeanKind-messagedriven" name="messagedriven"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="HomeInterface" name="HomeInterface">
+      <generalization xmi:id="HomeInterface-_generalization.0" general="NamedElement"/>
+      <ownedAttribute xmi:id="HomeInterface-bean" name="bean" type="Bean" association="_packagedElement.5"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.5" visibility="private" memberEnd="Bean-homeInterface HomeInterface-bean"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="Finder" name="Finder">
+      <generalization xmi:id="Finder-_generalization.0" general="NamedElement"/>
+      <ownedAttribute xmi:id="Finder-bean" name="bean" type="Bean" association="_packagedElement.7"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.7" visibility="private" memberEnd="Bean-finder Finder-bean"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.8" visibility="private" memberEnd="Package-member NamedElement-package"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.9" visibility="private" memberEnd="Package-bean _packagedElement.9-package">
+      <ownedEnd xmi:id="_packagedElement.9-package" name="package" type="Package" association="_packagedElement.9"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.10" visibility="private" memberEnd="Package-homeInterface _packagedElement.10-package">
+      <ownedEnd xmi:id="_packagedElement.10-package" name="package" type="Package" association="_packagedElement.10"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.11" visibility="private" memberEnd="Package-finder _packagedElement.11-package">
+      <ownedEnd xmi:id="_packagedElement.11-package" name="package" type="Package" association="_packagedElement.11"/>
+    </packagedElement>
+    <profileApplication xmi:id="_profileApplication.0">
+      <eAnnotations xmi:id="_profileApplication.0-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_profileApplication.1">
+      <eAnnotations xmi:id="_profileApplication.1-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Metamodel xmi:id="_nIX74GDQEee6MpbwmItUiw" base_Model="_0"/>
+  <standard:Metaclass xmi:id="_nIaYIGDQEee6MpbwmItUiw" base_Class="NamedElement"/>
+  <standard:Metaclass xmi:id="_nIaYIWDQEee6MpbwmItUiw" base_Class="Bean"/>
+  <standard:Metaclass xmi:id="_nIa_MGDQEee6MpbwmItUiw" base_Class="HomeInterface"/>
+  <standard:Metaclass xmi:id="_nIbmQGDQEee6MpbwmItUiw" base_Class="Finder"/>
+  <standard:Metaclass xmi:id="_sxB7kGDSEee6MpbwmItUiw" base_Class="Package"/>
+  <Ecore:EOperation xmi:id="_Wi_2UGDWEee6MpbwmItUiw" base_Operation="NamedElement-getPackage" visibility="None"/>
+  <Ecore:EOperation xmi:id="_ZFVQMGDWEee6MpbwmItUiw" base_Operation="NamedElement-setPackage" visibility="None"/>
+  <Ecore:EOperation xmi:id="_w2VvwHLIEeeEc4Gd2aZy8A" base_Operation="_w18HIHLIEeeEc4Gd2aZy8A" visibility="None"/>
+</xmi:XMI>

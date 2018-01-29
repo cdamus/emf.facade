@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:j2eeprofile="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package xmi:id="_a1OOwGD9EeeRI4ZiQltveg" name="a3">
+    <packagedElement xmi:type="uml:Class" xmi:id="_EbFukGD-Eee5h7jApwhmyQ" name="Thing"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_bMGP0GKAEee7a-JRobH-3Q" name="Whatsit"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_C59IEGMkEeekBdYfVu2IVg" name="ThingByID">
+      <ownedOperation xmi:id="_MUGuUGMkEeekBdYfVu2IVg" name="findThingByID">
+        <ownedParameter xmi:id="_PE-6gGMkEeekBdYfVu2IVg" name="id" effect="read">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_UEVJYGMkEeekBdYfVu2IVg" type="_EbFukGD-Eee5h7jApwhmyQ" direction="return" effect="create">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WXp24GMkEeekBdYfVu2IVg"/>
+        </ownedParameter>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_cF2IwGMkEeekBdYfVu2IVg" client="_C59IEGMkEeekBdYfVu2IVg" supplier="_EbFukGD-Eee5h7jApwhmyQ"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_EWBoAGMlEeekBdYfVu2IVg" name="ThingByName"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_EWCPEGMlEeekBdYfVu2IVg" client="_EWBoAGMlEeekBdYfVu2IVg" supplier="_EbFukGD-Eee5h7jApwhmyQ"/>
+    <profileApplication xmi:id="_i5CT0GMkEeekBdYfVu2IVg">
+      <eAnnotations xmi:id="_i5KPoGMkEeekBdYfVu2IVg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_Bs0KcGD-Eee5h7jApwhmyQ">
+      <eAnnotations xmi:id="_Bs4b4GD-Eee5h7jApwhmyQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_FACADE_TESTS/j2ee.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Package>
+  <j2eeprofile:Bean xmi:id="_Tb5egGECEeeTa-lmeT-VMg" base_Class="_EbFukGD-Eee5h7jApwhmyQ"/>
+  <j2eeprofile:Bean xmi:id="_bMOysGKAEee7a-JRobH-3Q" base_Class="_bMGP0GKAEee7a-JRobH-3Q"/>
+  <j2eeprofile:Finder xmi:id="_KDGVAGMkEeekBdYfVu2IVg" base_Interface="_C59IEGMkEeekBdYfVu2IVg"/>
+  <standard:Create xmi:id="_rtrZQGMkEeekBdYfVu2IVg" base_Usage="_cF2IwGMkEeekBdYfVu2IVg"/>
+  <j2eeprofile:Finder xmi:id="_EWC2IGMlEeekBdYfVu2IVg" base_Interface="_EWBoAGMlEeekBdYfVu2IVg"/>
+  <standard:Create xmi:id="_EWC2IWMlEeekBdYfVu2IVg" base_Usage="_EWCPEGMlEeekBdYfVu2IVg"/>
+</xmi:XMI>

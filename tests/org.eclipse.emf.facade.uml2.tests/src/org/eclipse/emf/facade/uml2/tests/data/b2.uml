@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:j2eeprofile="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Package xmi:id="_a1OOwGD9EeeRI4ZiQltveg" name="b2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_EbFukGD-Eee5h7jApwhmyQ" name="Thing"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_bMGP0GKAEee7a-JRobH-3Q" name="Whatsit"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_WBFAcGJUEeeUlPd6FZB75g" name="Home1"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_epTagGJUEeeUlPd6FZB75g" client="_WBFAcGJUEeeUlPd6FZB75g" supplier="_EbFukGD-Eee5h7jApwhmyQ"/>
+    <profileApplication xmi:id="_Bs0KcGD-Eee5h7jApwhmyQ">
+      <eAnnotations xmi:id="_Bs4b4GD-Eee5h7jApwhmyQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML2_FACADE_TESTS/j2ee.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Package>
+  <j2eeprofile:Bean xmi:id="_Tb5egGECEeeTa-lmeT-VMg" base_Class="_EbFukGD-Eee5h7jApwhmyQ"/>
+  <j2eeprofile:Bean xmi:id="_bMOysGKAEee7a-JRobH-3Q" base_Class="_bMGP0GKAEee7a-JRobH-3Q"/>
+  <j2eeprofile:HomeInterface xmi:id="_n9HZIGJdEeeUlPd6FZB75g" base_Interface="_WBFAcGJUEeeUlPd6FZB75g"/>
+</xmi:XMI>

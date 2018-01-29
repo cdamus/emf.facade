@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_md2F4H3UEee6BItyZCN4VA" name="o3">
+  <packagedElement xmi:type="uml:OpaqueExpression" xmi:id="_pOdzYH3UEee6BItyZCN4VA" name="expr">
+    <language>OCL</language>
+    <language>Smalltalk</language>
+    <language>Java</language>
+    <language>English</language>
+    <body>self.thing->notEmpty()</body>
+    <body>self things notEmpty</body>
+    <body>!this.getThings().isEmpty()</body>
+    <body>There is at least some thing</body>
+  </packagedElement>
+</uml:Package>

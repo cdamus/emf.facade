@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="org.eclipse.emf.facade.feature" version="0.0.0">
+      <category name="facade_integration"/>
+   </feature>
+   <feature id="org.eclipse.emf.facade.feature.source" version="0.0.0">
+      <category name="facade_integration"/>
+   </feature>
+   <category-def name="facade_integration" label="EMF Facade">
+      <description>
+         Features to integrate EMF Facade with other tools.
+      </description>
+   </category-def>
+</site>

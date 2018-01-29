@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_tBJxgHIFEee0W-cg8kXrmA" name="m2" viewpoint="design">
+  <packagedElement xmi:type="uml:Collaboration" xmi:id="_yJQTwHIFEee0W-cg8kXrmA" name="lookup_thing" collaborationRole="_3f95wHIFEee0W-cg8kXrmA _VVTx0HIGEee0W-cg8kXrmA">
+    <ownedAttribute xmi:id="_3f95wHIFEee0W-cg8kXrmA" name="finder">
+      <type xmi:type="uml:Interface" href="m2.j2ee.uml#_EWBoAGMlEeekBdYfVu2IVg"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_VVTx0HIGEee0W-cg8kXrmA" name="client" type="_SqslsHIGEee0W-cg8kXrmA"/>
+    <ownedConnector xmi:id="_ZZpxAHIGEee0W-cg8kXrmA">
+      <end xmi:id="_aXHe0HIGEee0W-cg8kXrmA" role="_VVTx0HIGEee0W-cg8kXrmA"/>
+      <end xmi:id="_c1GkMHIGEee0W-cg8kXrmA" role="_3f95wHIFEee0W-cg8kXrmA"/>
+    </ownedConnector>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_SqslsHIGEee0W-cg8kXrmA" name="Client"/>
+</uml:Model>

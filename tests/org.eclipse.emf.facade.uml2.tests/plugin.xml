@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+Copyright (c) 2017 Christian W. Damus and others.
+
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    Christian W. Damus - initial API and implementation
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated j2ee.facade -->
+      <package
+            uri="http://www.eclipse.org/emf/facade/2017/test/j2ee"
+            class="org.eclipse.emf.facade.uml2.tests.j2ee.J2EEPackage"
+            genModel="model/j2ee.facade.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated j2ee.facade -->
+      <parser
+            contentTypeIdentifier="org.eclipse.emf.facade.uml2.tests.j2ee"
+            class="org.eclipse.emf.facade.uml2.tests.j2ee.util.J2EEResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated j2ee.facade -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="j2ee"
+            id="org.eclipse.emf.facade.uml2.tests.j2ee"
+            name="%_UI_J2EE_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.eclipse.org/emf/facade/2017/test/j2ee"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated j2ee.profile -->
+      <package
+            uri="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee"
+            class="org.eclipse.emf.facade.uml2.tests.j2eeprofile.J2EEProfilePackage"
+            genModel="model/j2ee.profile.genmodel"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.uml2.uml.generated_package">
+      <profile
+            uri="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee"
+            location="pathmap://UML2_FACADE_TESTS/j2ee.profile.uml#_0">
+      </profile>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://UML2_FACADE_TESTS/"
+            target="platform:/plugin/org.eclipse.emf.facade.uml2.tests/model/">
+      </mapping>
+   </extension>
+   
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated opaqexpr.facade -->
+      <package
+            uri="http://www.eclipse.org/emf/facade/2017/test/opaqexpr"
+            class="org.eclipse.emf.facade.uml2.tests.opaqexpr.OpaqexprPackage"
+            genModel="model/opaqexpr.facade.genmodel"/>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated opaqexpr.facade -->
+      <parser
+            contentTypeIdentifier="org.eclipse.emf.facade.uml2.tests.opaqexpr"
+            class="org.eclipse.emf.facade.uml2.tests.opaqexpr.util.OpaqexprResourceFactoryImpl"/>
+   </extension>
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated opaqexpr.facade -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="opaqexpr"
+            id="org.eclipse.emf.facade.uml2.tests.opaqexpr"
+            name="%_UI_Opaqexpr_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.eclipse.org/emf/facade/2017/test/opaqexpr"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+   
+   <extension
+         point="org.eclipse.emf.facade.facadeProvider">
+      <facadeProviderFactory
+            class="org.eclipse.emf.facade.uml2.tests.j2ee.internal.providers.J2EEFacadeProvider$Factory"
+            ranking="10"
+            label="J2EE Profile for UML"
+            description="Facade model for J2EE models in UML with the J2EE Profile">
+      </facadeProviderFactory>
+      <facadeProviderFactory
+            class="org.eclipse.emf.facade.uml2.tests.opaqexpr.internal.providers.OpaqexprFacadeProvider$Factory"
+            ranking="1"
+            label="Opaque Expressions in UML"
+            description="Facade model for opaque expressions in UML">
+      </facadeProviderFactory>
+   </extension>
+ </plugin>

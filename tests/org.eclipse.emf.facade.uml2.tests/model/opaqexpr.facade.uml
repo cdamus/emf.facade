@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:standard="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_0" name="opaqexpr" URI="http://www.eclipse.org/emf/facade/2017/test/opaqexpr" viewpoint="Façade">
+    <packageImport xmi:id="_packageImport.0">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="OpaqueExpression" name="OpaqueExpression">
+      <ownedAttribute xmi:id="OpaqueExpression-body" name="body" type="BodyEntry" aggregation="composite" association="_packagedElement.2">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="OpaqueExpression-body-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="OpaqueExpression-body-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="OpaqueExpression-name" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="OpaqueExpression-name-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="BodyEntry" name="BodyEntry">
+      <ownedAttribute xmi:id="BodyEntry-key" name="key">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="BodyEntry-key-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="BodyEntry-value" name="value">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.2" visibility="private" memberEnd="OpaqueExpression-body _packagedElement.2-list">
+      <ownedEnd xmi:id="_packagedElement.2-list" name="list" type="OpaqueExpression" association="_packagedElement.2"/>
+    </packagedElement>
+    <profileApplication xmi:id="_profileApplication.0">
+      <eAnnotations xmi:id="_profileApplication.0-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:id="_profileApplication.1">
+      <eAnnotations xmi:id="_profileApplication.1-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <standard:Metamodel xmi:id="_nIX74GDQEee6MpbwmItUiw" base_Model="_0"/>
+  <standard:Metaclass xmi:id="_nIaYIGDQEee6MpbwmItUiw"/>
+  <standard:Metaclass xmi:id="_nIaYIWDQEee6MpbwmItUiw" base_Class="BodyEntry"/>
+  <standard:Metaclass xmi:id="_nIa_MGDQEee6MpbwmItUiw"/>
+  <standard:Metaclass xmi:id="_nIbmQGDQEee6MpbwmItUiw"/>
+  <standard:Metaclass xmi:id="_sxB7kGDSEee6MpbwmItUiw" base_Class="OpaqueExpression"/>
+  <Ecore:EOperation xmi:id="_Wi_2UGDWEee6MpbwmItUiw" visibility="None"/>
+  <Ecore:EOperation xmi:id="_ZFVQMGDWEee6MpbwmItUiw" visibility="None"/>
+  <Ecore:EOperation xmi:id="_w2VvwHLIEeeEc4Gd2aZy8A" visibility="None"/>
+  <Ecore:EClass xmi:id="__GxMIH3DEee6BItyZCN4VA" instanceClassName="java.util.Map$Entry" base_Class="BodyEntry"/>
+</xmi:XMI>

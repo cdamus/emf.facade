@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<!-- Oomph doesn't know how to generate a Target Definition that includes Hamcrest
+     even though it is required by Mockito, probably because it is just a pass-through
+     for a package split across other bundles and Oomph doesn't understand the structure
+     of the OSGi requirements that express this. -->
+<target name="JUnit Target" sequenceNumber="1">
+  <locations>
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+      <unit id="org.hamcrest" version="1.1.0.v20090501071000"/>
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20170307180635/repository/"/>
+    </location>
+  </locations>
+</target>

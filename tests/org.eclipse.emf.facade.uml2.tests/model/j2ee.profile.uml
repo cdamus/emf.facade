@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_0" name="j2eeprofile" URI="http://www.eclipse.org/emf/facade/2017/profile/test/j2ee" metaclassReference="_ZwVrIGDNEee6MpbwmItUiw _ZwW5QGDNEee6MpbwmItUiw">
+  <elementImport xmi:id="_ZwVrIGDNEee6MpbwmItUiw">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:id="_ZwW5QGDNEee6MpbwmItUiw">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interface"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_cdoX0GDNEee6MpbwmItUiw" name="Bean">
+    <ownedAttribute xmi:id="_zlg5YmDNEee6MpbwmItUiw" name="base_Class" association="_zlg5YGDNEee6MpbwmItUiw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_114ZgGDNEee6MpbwmItUiw" name="kind" type="_e0fhgGDNEee6MpbwmItUiw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_zlg5YGDNEee6MpbwmItUiw" name="Class_Bean" memberEnd="_zlg5YWDNEee6MpbwmItUiw _zlg5YmDNEee6MpbwmItUiw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_zlg5YWDNEee6MpbwmItUiw" name="extension_Bean" type="_cdoX0GDNEee6MpbwmItUiw" aggregation="composite" association="_zlg5YGDNEee6MpbwmItUiw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_e0fhgGDNEee6MpbwmItUiw" name="BeanKind">
+    <ownedLiteral xmi:id="_kxwxMGDNEee6MpbwmItUiw" name="session"/>
+    <ownedLiteral xmi:id="_n4HeIGDNEee6MpbwmItUiw" name="entity"/>
+    <ownedLiteral xmi:id="_oC1gYGDNEee6MpbwmItUiw" name="messagedriven"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_sZSjQGDNEee6MpbwmItUiw" name="HomeInterface">
+    <ownedAttribute xmi:id="_xJ5ykmDNEee6MpbwmItUiw" name="base_Interface" association="_xJ5ykGDNEee6MpbwmItUiw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interface"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_upvi8GDNEee6MpbwmItUiw" name="Finder">
+    <ownedAttribute xmi:id="_yI5xcmDNEee6MpbwmItUiw" name="base_Interface" association="_yI5xcGDNEee6MpbwmItUiw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interface"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_xJ5ykGDNEee6MpbwmItUiw" name="Interface_HomeInterface" memberEnd="_xJ5ykWDNEee6MpbwmItUiw _xJ5ykmDNEee6MpbwmItUiw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_xJ5ykWDNEee6MpbwmItUiw" name="extension_HomeInterface" type="_sZSjQGDNEee6MpbwmItUiw" aggregation="composite" association="_xJ5ykGDNEee6MpbwmItUiw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_yI5xcGDNEee6MpbwmItUiw" name="Interface_Finder" memberEnd="_yI5xcWDNEee6MpbwmItUiw _yI5xcmDNEee6MpbwmItUiw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_yI5xcWDNEee6MpbwmItUiw" name="extension_Finder" type="_upvi8GDNEee6MpbwmItUiw" aggregation="composite" association="_yI5xcGDNEee6MpbwmItUiw"/>
+  </packagedElement>
+</uml:Profile>

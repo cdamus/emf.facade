@@ -291,11 +291,14 @@ public final class ReflectiveDispatch {
 		try {
 			return method.invoke(owner, arg);
 		} catch (IllegalAccessException | IllegalArgumentException e) {
-			EMFFacadePlugin.error(String.format("Failed to invoke %s on receiver %s", method, owner), e); //$NON-NLS-1$
+			EMFFacadePlugin.INSTANCE.log(
+					EMFFacadePlugin.INSTANCE.getString("_LOG_reflectFailed", new Object[] {method, owner })); //$NON-NLS-1$
+			EMFFacadePlugin.INSTANCE.log(e);
 			return null;
 		} catch (InvocationTargetException e) {
-			EMFFacadePlugin.error(String.format("Method %s execution failed on receiver %s", method, owner), //$NON-NLS-1$
-					e.getTargetException());
+			EMFFacadePlugin.INSTANCE.log(
+					EMFFacadePlugin.INSTANCE.getString("_LOG_methodFailed", new Object[] {method, owner })); //$NON-NLS-1$
+			EMFFacadePlugin.INSTANCE.log(e);
 			return null;
 		}
 	}
@@ -325,9 +328,9 @@ public final class ReflectiveDispatch {
 		} catch (InvocationTargetException e) {
 			if (throwableType == null) {
 				// It is optional, after all
-				EMFFacadePlugin.error(
-						String.format("Method %s execution failed on receiver %s", method, owner), //$NON-NLS-1$
-						e.getTargetException());
+				EMFFacadePlugin.INSTANCE.log(EMFFacadePlugin.INSTANCE.getString("_LOG_methodFailed", //$NON-NLS-1$
+						new Object[] {method, owner }));
+				EMFFacadePlugin.INSTANCE.log(e.getTargetException());
 				return null;
 			}
 
@@ -335,12 +338,15 @@ public final class ReflectiveDispatch {
 				// Propagate
 				throw throwableType.cast(e.getTargetException());
 			}
-			EMFFacadePlugin
-					.error(String.format("Unexpected exception in %s on receiver %s: %s", method, owner, //$NON-NLS-1$
-							e.getClass().getName()), e);
+			EMFFacadePlugin.INSTANCE
+					.log(EMFFacadePlugin.INSTANCE.getString("_LOG_unexpected", new Object[] {method, owner, //$NON-NLS-1$
+							e.getClass().getName() }));
+			EMFFacadePlugin.INSTANCE.log(e.getTargetException());
 			return null;
 		} catch (IllegalAccessException | IllegalArgumentException e) {
-			EMFFacadePlugin.error(String.format("Failed to invoke %s on receiver %s", method, owner), e); //$NON-NLS-1$
+			EMFFacadePlugin.INSTANCE.log(
+					EMFFacadePlugin.INSTANCE.getString("_LOG_reflectfailed", new Object[] {method, owner })); //$NON-NLS-1$
+			EMFFacadePlugin.INSTANCE.log(e);
 			return null;
 		}
 	}

@@ -15,14 +15,18 @@ import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.expressions.EvaluationContext;
+import org.eclipse.core.expressions.EvaluationResult;
+import org.eclipse.core.expressions.Expression;
+import org.eclipse.core.expressions.ExpressionConverter;
+import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IRegistryChangeListener;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.plugin.RegistryReader;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.facade.IFacadeProvider;
-import org.eclipse.osgi.util.NLS;
 
 /**
  * A registry reader that watches the façade provider extension point.
@@ -46,8 +50,13 @@ class FacadeProviderRegistryReader extends RegistryReader {
 	/** Attribute name for the user-presentable description. */
 	private static final String DESCRIPTION = "description"; //$NON-NLS-1$
 
+	/** Element name for the enablement expression. */
+	private static final String ENABLEMENT = "enablement"; //$NON-NLS-1$
+
 	/** The façade provider registry to which extensions will be registered. */
 	private final IFacadeProvider.Factory.Registry facadeProviderRegistry;
+
+	private Expression enablement;
 
 	/**
 	 * Initializes me with the façade provider registry that I maintain.
@@ -97,7 +106,8 @@ class FacadeProviderRegistryReader extends RegistryReader {
 					try {
 						Integer.parseInt(rankingStr);
 					} catch (NumberFormatException e) {
-						logError(element, NLS.bind("{0} is not an integer: {1}", RANKING, rankingStr));
+						EMFFacadePlugin.INSTANCE.log(EMFFacadePlugin.INSTANCE.getString("_LOG_notInteger", //$NON-NLS-1$
+								new Object[] {RANKING, rankingStr }));
 						result = false;
 					}
 
@@ -120,8 +130,8 @@ class FacadeProviderRegistryReader extends RegistryReader {
 
 		IFacadeProvider.Factory previous = facadeProviderRegistry.add(descriptor);
 		if (previous != null) {
-			EMFFacadePlugin.log(IStatus.WARNING,
-					NLS.bind("Duplicate facade provider extension: {0}", element.getAttribute(CLASS)), null);
+			EMFFacadePlugin.INSTANCE.log(EMFFacadePlugin.INSTANCE.getString("_LOG_providerDupe", //$NON-NLS-1$
+					new Object[] {element.getAttribute(CLASS) }));
 		}
 	}
 
@@ -220,9 +230,9 @@ class FacadeProviderRegistryReader extends RegistryReader {
 					provider = (IFacadeProvider)createInstance();
 				} catch (Exception e) {
 					providerFailed = true;
-					EMFFacadePlugin.log(e);
-					logError(element,
-							"Failed to instantiate facade provider extension: " + e.getLocalizedMessage());
+					EMFFacadePlugin.INSTANCE.log(e);
+					logError(element, EMFFacadePlugin.INSTANCE.getString("_LOG_providerFailed", //$NON-NLS-1$
+							new Object[] {e.getLocalizedMessage() }));
 				}
 			}
 			return provider;
@@ -238,10 +248,50 @@ class FacadeProviderRegistryReader extends RegistryReader {
 			throw new UnsupportedOperationException("immutable extension descriptor"); //$NON-NLS-1$
 		}
 
+		/**
+		 * Obtain a user-friendly label for this extension.
+		 * 
+		 * @return the label
+		 */
+		public String getLabel() {
+			return label;
+		}
+
+		/**
+		 * Obtain a user-friendly description of this extension.
+		 * 
+		 * @return the description
+		 */
+		public String getDescription() {
+			return description;
+		}
+
+		private Expression getEnablement() {
+			if (enablement == null) {
+				IConfigurationElement[] config = this.element.getChildren(ENABLEMENT);
+				if (config.length > 0) {
+					try {
+						enablement = ExpressionConverter.getDefault().perform(config[0]);
+					} catch (CoreException e) {
+						enablement = Expression.TRUE;
+						EMFFacadePlugin.INSTANCE.log(e.getStatus());
+					}
+				}
+			}
+
+			return enablement;
+		}
+
 		@Override
 		public boolean isFacadeProviderFactoryFor(ResourceSet resourceSet) {
-			// TODO Auto-generated method stub
-			return false;
+			IEvaluationContext ctx = new EvaluationContext(null, resourceSet);
+			try {
+				return EvaluationResult.TRUE.equals(getEnablement().evaluate(ctx));
+			} catch (CoreException e) {
+				EMFFacadePlugin.INSTANCE.log(e.getStatus());
+				return false;
+			}
+
 		}
 
 	}

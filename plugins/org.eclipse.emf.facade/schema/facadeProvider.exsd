@@ -11,6 +11,8 @@ façade models fronting the user&apos;s model objects.
       </documentation>
    </annotation>
 
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
    <element name="extension">
       <annotation>
          <appInfo>
@@ -51,10 +53,14 @@ façade models fronting the user&apos;s model objects.
    <element name="facadeProviderFactory">
       <annotation>
          <documentation>
-            Registration of a factory that creates façade providers for comparisons of models that are representable in terms of some façåde model.
+            Registration of a factory that creates façade providers for comparisons of models that are representable in terms of some façade model.  An optional enablement expression may be used
+to constrain the contexts in which the factory is employed.  The default variable of the expression evaluation is the contextual &lt;tt&gt;ResourceSet&lt;/tt&gt;.
          </documentation>
       </annotation>
       <complexType>
+         <sequence>
+            <element ref="enablement" minOccurs="0" maxOccurs="1"/>
+         </sequence>
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>

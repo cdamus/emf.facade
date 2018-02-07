@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.emf.facade.feature"
+      id="org.eclipse.emf.facade.uml2.feature"
       label="%featureName"
       version="0.7.0.qualifier"
       provider-name="%providerName"
-      plugin="org.eclipse.emf.facade"
+      plugin="org.eclipse.emf.facade.uml2"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1">
 
@@ -21,14 +21,7 @@
    </license>
 
    <plugin
-         id="org.eclipse.emf.facade"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.emf.facade.edit"
+         id="org.eclipse.emf.facade.uml2"
          download-size="0"
          install-size="0"
          version="0.0.0"

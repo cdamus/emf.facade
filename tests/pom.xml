@@ -20,59 +20,107 @@
 
   <artifactId>org.eclipse.emf.facade.tests</artifactId>
   <packaging>pom</packaging>
-  
+
   <modules>
     <module>org.eclipse.emf.facade.uml2.tests</module>
     <module>org.eclipse.emf.facade.uml2.tests.edit</module>
     <module>org.eclipse.emf.facade.uml2.edit.tests</module>
   </modules>
-  
+
   <build>
     <plugins>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-surefire-plugin</artifactId>
-          <configuration>
-            <useUIHarness>false</useUIHarness>
-            <useUIThread>false</useUIThread>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>target-platform-configuration</artifactId>
-          <version>${tycho-version}</version>
-          <configuration>
-            <!-- Oomph cannot generate a Target Definition that includes the org.hamcrest
-                 pass-through bundle, but it is required at run-time by Mockito. -->
-            <target>
-              <artifact>
-                <groupId>org.eclipse.emf.facade</groupId>
-                <artifactId>org.eclipse.emf.facade.tests</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <classifier>tests</classifier>
-              </artifact>
-              <artifact>
-                <groupId>org.eclipse.emf.facade</groupId>
-                <artifactId>org.eclipse.emf.facade.tp</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <classifier>Oxygen</classifier>
-              </artifact>
-            </target>
-            <dependency-resolution>
-              <!-- Tycho doesn't include this automatically from manifest dependencies. -->
-              <extraRequirements>
-                <requirement>
-                  <type>eclipse-plugin</type>
-                  <id>org.hamcrest</id>
-                  <versionRange>[1.1.0,2.0.0)</versionRange>
-                </requirement>
-              </extraRequirements>
-            </dependency-resolution>
-          </configuration>
-        </plugin>
+      <!-- tycho surefire include/exclude pattern -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <executions>
+          <execution>
+            <id>default-test</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <useUIHarness>false</useUIHarness>
+              <includes>
+                <include>**/*PTest.java</include>
+              </includes>
+              <testFailureIgnore>false</testFailureIgnore>
+              <failIfNoTests>false</failIfNoTests>
+            </configuration>
+          </execution>
+          <execution>
+            <id>ui-test</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <useUIHarness>true</useUIHarness>
+              <includes>
+                <include>**/*UITest.java</include>
+              </includes>
+              <testFailureIgnore>false</testFailureIgnore>
+              <failIfNoTests>false</failIfNoTests>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- maven surefire include/exclude pattern -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-version}</version>
+        <configuration>
+          <useUIHarness>true</useUIHarness>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/*PTest.java</exclude>
+            <exclude>**/*UITest.java</exclude>
+          </excludes>
+          <testFailureIgnore>false</testFailureIgnore>
+          <failIfNoTests>false</failIfNoTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <!-- Oomph cannot generate a Target Definition that includes the org.hamcrest 
+            pass-through bundle, but it is required at run-time by Mockito. -->
+          <target>
+            <artifact>
+              <groupId>org.eclipse.emf.facade</groupId>
+              <artifactId>org.eclipse.emf.facade.tests</artifactId>
+              <version>0.0.1-SNAPSHOT</version>
+              <classifier>tests</classifier>
+            </artifact>
+            <artifact>
+              <groupId>org.eclipse.emf.facade</groupId>
+              <artifactId>org.eclipse.emf.facade.tp</artifactId>
+              <version>0.0.1-SNAPSHOT</version>
+              <classifier>Oxygen</classifier>
+            </artifact>
+          </target>
+          <dependency-resolution>
+            <!-- Tycho doesn't include this automatically from manifest dependencies. -->
+            <extraRequirements>
+              <requirement>
+                <type>eclipse-plugin</type>
+                <id>org.hamcrest</id>
+                <versionRange>[1.1.0,2.0.0)</versionRange>
+              </requirement>
+            </extraRequirements>
+          </dependency-resolution>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-  
+
   <profiles>
     <profile>
       <id>jacoco</id>

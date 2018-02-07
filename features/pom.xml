@@ -23,6 +23,7 @@
   
   <modules>
     <module>org.eclipse.emf.facade-feature</module>
+    <module>org.eclipse.emf.facade.uml2-feature</module>
   </modules>
   
   <build>
